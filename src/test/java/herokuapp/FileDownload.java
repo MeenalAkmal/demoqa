@@ -21,7 +21,7 @@ public class FileDownload {
         String downloadDir = System.getProperty("user.dir") + "/downloads";
         new File(downloadDir).mkdirs(); // create downloads folder if not exists
 
-        // ✅ Set Chrome preferences to change default download path
+        //  Set Chrome preferences to change default download path
         Map<String, Object> prefs = new HashMap<>();
         prefs.put("download.default_directory", downloadDir);
         prefs.put("profile.default_content_settings.popups", 0);
@@ -33,14 +33,14 @@ public class FileDownload {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
 
-        // ✅ Open the URL and click the first download link
+        // Open the URL and click the first download link
         driver.get("https://the-internet.herokuapp.com/download");
         driver.findElement(By.cssSelector(".example a")).click();
 
-        // ✅ Pause briefly to allow file to download
+        //  Pause briefly to allow file to download
         Thread.sleep(3000);
 
-        // ✅ Check if file is downloaded
+        //  Check if file is downloaded
         File folder = new File(downloadDir);
         File[] files = folder.listFiles();
 
